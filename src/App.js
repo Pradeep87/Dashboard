@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import React from 'react'
+import Dashboard from './Component/Dashboard';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AllUsersPage from './Component/Admin/AllUsersPage';
+import AllOrsers from './Component/Admin/AllOrders';
+import CreateProduct from  './Component/Admin/CreateProduct';
+import AdminProduct from './Component/Admin/ProductPage';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <BrowserRouter>
+   
+    <Routes>
+<Route path='/' element={ <Dashboard/>}/>
+<Route path='/admin/allproducts' element={ <AdminProduct/>}/>
+<Route path='/admin/product' element={ <CreateProduct/>}/>
+<Route path='/admin/orders' element={ <AllOrsers/>}/>
+<Route path='/admin/users' element={ <AllUsersPage/>}/>
+
+
+    </Routes>
+  
+    </BrowserRouter>
+   
+ 
+    </>
+  )
 }
 
-export default App;
+export default App
